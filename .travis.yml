@@ -21,8 +21,8 @@ before_script:
 
 # TODO Add variable to make it simple to be reusable for all semester projects
 #- export DEBIAN_FRONTEND="noninteractive";
-#- PW="REMOTE_USER"
-#- USER_NAME="REMOTE_PW"
+#- PW="REMOTE_PW"
+#- USER_NAME="REMOTE_USER"
 
 #- sudo apt-get clean
 #- sudo rm -r /var/lib/apt/lists/*
