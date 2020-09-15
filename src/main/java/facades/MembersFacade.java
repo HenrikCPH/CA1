@@ -57,9 +57,9 @@ public static void main(String[] args) {
         try {
             em.getTransaction().begin();
             em.createQuery("DELETE from Members").executeUpdate();
-    //        em.persist(new Member("","",""));
-      //      em.persist(new Member("","",""));
-        //    em.persist(new Member("","",""));
+            em.persist(new Members("Mark Sørensen","cph-ms845","Tenet"));
+            em.persist(new Members("Yones El Bana","cph-ye7",""));
+            em.persist(new Members("Henrik Lønquist Thomasen","cph-ht92",""));
             em.getTransaction().commit();
         } finally {
             em.close();
