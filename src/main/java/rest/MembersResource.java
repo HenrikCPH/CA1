@@ -40,6 +40,14 @@ public class MembersResource {
         return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
     }
     
+    @Path("/{id}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public MembersDTO getById(@PathParam("id") int id) {
+        return FACADE.getMemberById(id);
+        //throw new UnsupportedOperationException();
+    }
+    
     @Path("/all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
