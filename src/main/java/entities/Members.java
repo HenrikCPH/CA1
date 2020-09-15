@@ -9,7 +9,7 @@ import javax.persistence.NamedQuery;
 
 
 @Entity
-@NamedQuery(name = "RenameMe.deleteAllRows", query = "DELETE from RenameMe")
+@NamedQuery(name = "Members.deleteAllRows", query = "DELETE from Members")
 public class Members implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,6 +52,22 @@ public class Members implements Serializable {
 
     public void setDummyStr2(String dummyStr2) {
         this.dummyStr2 = dummyStr2;
+    }
+
+    public int getid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getname() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getstudentID() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getmovie() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
