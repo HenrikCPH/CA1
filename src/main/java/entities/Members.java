@@ -1,77 +1,135 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
 
 
 @Entity
-@NamedQuery(name = "Members.deleteAllRows", query = "DELETE from Members")
 public class Members implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+    private String name;
+    private String studentID;
+    private String movie;
     
-    public Members() {
-    }
-        
-    public Long getId() {
-        return id;
-    }
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date created;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date lastEdited;
+    
+    private String createdByUser;
+    
+    private String editedByUser;
+    private boolean member;
 
-    public void setId(Long id) {
+    public Members(int id, String name, String studentID, String movie) {
         this.id = id;
-    }
-    
-    // TODO, delete this class, or rename to an Entity class that makes sense for what you are about to do
-    // Delete EVERYTHING below if you decide to use this class, it's dummy data used for the initial demo
-    private String dummyStr1;
-    private String dummyStr2;
-
-    public Members(String dummyStr1, String dummyStr2) {
-        this.dummyStr1 = dummyStr1;
-        this.dummyStr2 = dummyStr2;
-    }
-
-    public String getDummyStr1() {
-        return dummyStr1;
-    }
-
-    public void setDummyStr1(String dummyStr1) {
-        this.dummyStr1 = dummyStr1;
-    }
-
-    public String getDummyStr2() {
-        return dummyStr2;
-    }
-
-    public void setDummyStr2(String dummyStr2) {
-        this.dummyStr2 = dummyStr2;
+        this.name = name;
+        this.studentID = studentID;
+        
+        this.created = new Date();
+        this.lastEdited = new Date();
+        this.createdByUser = "Group 10";
+        this.editedByUser = "";
+        
     }
 
     public int getid() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;
+    }
+
+    public void setid(int id) {
+        this.id = id;
     }
 
     public String getname() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return name;
+    }
+
+    public void setname(String name) {
+        this.name = name;
     }
 
     public String getstudentID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return studentID;
     }
+
+    public void setstudentID(String studentID) {
+        this.studentID = studentID;
+    }
+    
+   
+    
+    
 
     public String getmovie() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return movie;
+    }
+
+    public void setmovie(String movie) {
+        this.movie = movie;
     }
     
     
+    public Members() {
+    }
     
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Members other = (Members) obj;
+        if (this.member != other.member) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+       // if (!Arrays.deepEquals(this.movie, other.movie)) {
+        //    return false;
+        //}
+        return true;
+    }
 
    
+    
 }

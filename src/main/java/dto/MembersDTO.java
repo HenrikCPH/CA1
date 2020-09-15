@@ -28,6 +28,15 @@ public class MembersDTO {
         this.movie = members.getmovie();
         
           }
+    public MembersDTO(int id, String name, String studentID, String movie) {
+        this.id = id;
+        this.name = name;
+        this.studentID = studentID;
+        this.movie = movie;
+        
+        
+    }
+    
     public int getId() {
         return id;
     }
