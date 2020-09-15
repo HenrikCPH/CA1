@@ -6,5 +6,41 @@
     </head>
     <body>
         <h1>Gruppe 10 !!!!!!!!</h1>
+        <h2>Class E</h2>
+        <div id="div1"></div>
+        <button id="btn">Reload Names</button>
+        <div>Links
+            <br>
+            <ul>
+                <li>href</li>
+                <li>href</li>
+                <li>href</li>
+                <li>href</li>
+            </ul>
+        </div>
+        
+        
+        <script>
+
+            var members = [
+                {name1, studentId1, movie1},
+                {name2, studentId2, movie2},
+                {name3, studentId3, movie3}
+            ];
+
+            var makeList = function (members) {
+                var inner = members.map(members => ("\t<li>" + members + "</li>"));
+                return inner.join("\n");
+            };
+
+            btn.onclick = function () {
+                document.getElementById("btn").addEventListener("click", makeList);
+            };
+
+                
+
+
+        </script>
+
     </body>
 </html>
