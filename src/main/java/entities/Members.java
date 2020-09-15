@@ -35,7 +35,7 @@ public class Members implements Serializable {
     private String editedByUser;
     private boolean member;
 
-    public Members(int id, String name, String studentID, String movie) {
+    public Members( String name, String studentID, String movie) {
         this.id = id;
         this.name = name;
         this.studentID = studentID;
@@ -45,6 +45,11 @@ public class Members implements Serializable {
         this.createdByUser = "Group 10";
         this.editedByUser = "";
         
+    }
+    
+    
+    
+     public Members() {
     }
 
     public int getid() {
@@ -84,8 +89,6 @@ public class Members implements Serializable {
     }
     
     
-    public Members() {
-    }
     
     
     public Integer getId() {
