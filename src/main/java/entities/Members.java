@@ -30,20 +30,17 @@ public class Members implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date lastEdited;
     
-    private String createdByUser;
+    private String groupnumber;
     
-    private String editedByUser;
-    private boolean member;
 
-    public Members( String name, String studentID, String movie) {
+    public Members(String name, String studentID, String movie) {
         this.id = id;
         this.name = name;
         this.studentID = studentID;
-        
+        this.movie = movie;
         this.created = new Date();
         this.lastEdited = new Date();
-        this.createdByUser = "Group 10";
-        this.editedByUser = "";
+        this.groupnumber = "Group 10";
         
     }
     
@@ -106,32 +103,7 @@ public class Members implements Serializable {
         return hash;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Members other = (Members) obj;
-        if (this.member != other.member) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-       // if (!Arrays.deepEquals(this.movie, other.movie)) {
-        //    return false;
-        //}
-        return true;
-    }
+    
 
    
     

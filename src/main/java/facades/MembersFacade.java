@@ -45,6 +45,17 @@ public class MembersFacade {
         return new MembersDTO(m);
     }
     
+     public List<MembersDTO> getMembersByName(String title) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Members> query = em.createQuery("SELECT m FROM Members m WHERE m.name LIKE :title", Members.class);
+        query.setParameter("title", "%"+title+"%");
+        List<Members> members = query.getResultList();
+        List<MembersDTO> membersDTOs = new ArrayList();
+        members.forEach((Members member) -> {
+            membersDTOs.add(new MembersDTO(member));
+        });
+        return membersDTOs;
+    }
     
     public static MembersFacade getMembersFacade(EntityManagerFactory _emf) {
         if (instance == null) {
@@ -78,8 +89,8 @@ public static void main(String[] args) {
             em.getTransaction().begin();
             em.createQuery("DELETE from Members").executeUpdate();
             em.persist(new Members("Mark Sørensen","cph-ms845","Tenet"));
-            em.persist(new Members("Yones El Bana","cph-ye7",""));
-            em.persist(new Members("Henrik Lønquist Thomasen","cph-ht92",""));
+            em.persist(new Members("Yones El Bana","cph-ye7","parasite"));
+            em.persist(new Members("Henrik Lønquist Thomasen","cph-ht92","1917"));
             em.getTransaction().commit();
         } finally {
             em.close();
