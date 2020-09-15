@@ -11,58 +11,46 @@
 
         <h2>Class E</h2>
 
-        <div id="div1">
-            <table>
-                <tr>
-                    <td>Name</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Student ID</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Movies</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
+        <div id="div1"></div>
 
         <button id="btn">Reload Names</button>
 
         <div>Links
             <br>
             <ul>
-                <li><a href="WhoPage">Here you can see who worked on what. Pretty boring right?</a></li>
-                <li><a href="opgave2">Interrested in some cool jokes? Click here!</a></li>
+                <li><a href="contractPage">Here you can see who worked on what and our group contract. Pretty boring right?</a></li>
+                <li><a href="coolJokesPage">Interrested in some cool jokes? Click here!</a></li>
                 <li><a href="https://github.com/HenrikCPH/CA1.git">Want to steal our code? heres our Github Repo</a></li>
-                <li><a href="opgave4">Want to by a car? See what cars we have for sale here!</a></li>
+                <li><a href="carsForSalePage">Want to by a car? See what cars we have for sale here!</a></li>
             </ul>
         </div>
-
 
         <script>
 
             var members = [
-                {idname1, studentId1, movie1},
-                {name2, studentId2, movie2},
-                {name3, studentId3, movie3}
+                {id: 1, name1, studentId1, movie1},
+                {id: 2, name2, studentId2, movie2},
+                {id: 3, name3, studentId3, movie3}
             ];
+
+            document.getElementById("btn").addEventListener("click", makeList);
+
+            function event(event) {
+                makeList(members);
+                document.getElementById("div1").innerHTML = makeList(members);
+                event.preventDefault();
+            }
+            ;
 
             var makeList = function (members) {
                 var inner = members.map(members => ("\t<li>" + members + "</li>"));
+                inner.unshift("<ul>");
+                inner.push("</ul>");
                 return inner.join("\n");
             };
 
-            btn.onclick = function () {
-                document.getElementById("btn").addEventListener("click", makeList);
-            };
+            document.getElementById("div1").innerHTML = makeList(members);
+
 
         </script>
 
