@@ -1,5 +1,6 @@
 package facades;
 
+import dto.MembersDTO;
 import entities.Members;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,25 @@ public class MembersFacade {
      * @param _emf
      * @return an instance of this facade class.
      */
+    
+    public List<MembersDTO> getAllMembers() {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Members> query =  em.createQuery("SELECT m FROM Members m",Members.class);
+        List<Members> members = query.getResultList();
+        List<MembersDTO> membersDTOs = new ArrayList();
+        members.forEach((Members member) -> {
+            membersDTOs.add(new MembersDTO(member));
+        });
+        return membersDTOs;     
+    }
+    
+    public MembersDTO getMemberById(int id) {
+        EntityManager em = emf.createEntityManager();
+        Members m = em.find(Members.class, id);
+        return new MembersDTO(m);
+    }
+    
+    
     public static MembersFacade getMembersFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
