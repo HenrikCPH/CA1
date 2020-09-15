@@ -45,9 +45,9 @@ public class MembersFacadeTest {
     @BeforeEach
     public void setUp() {
         EntityManager em = emf.createEntityManager();
-          m1 = em.persist(new Members("Mark Sørensen","cph-ms845","Tenet"));
-          m2 = em.persist(new Members("Yones El Bana","cph-ye7","parasite"));
-          m3 = em.persist(new Members("Henrik Lønquist Thomasen","cph-ht92","1917"));
+          m1 = new Members("Mark Sørensen","cph-ms845","Tenet");
+          m2 = new Members("Yones El Bana","cph-ye7","parasite");
+          m3 = new Members("Henrik Lønquist Thomasen","cph-ht92","1917");
         try {
             em.getTransaction().begin();
             em.createQuery("DELETE from Members").executeUpdate();
