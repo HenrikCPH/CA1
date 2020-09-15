@@ -28,31 +28,28 @@
         <script>
 
             var members = [
-                {name: 'name1', studentId: '1', movie: '1'},
-                {name: 'name2', studentId: '2', movie: '2'},
-                {name: 'name3', studentId: '3', movie: '3'}
+                {name: 'name1', studentId: 1, movie: '1'},
+                {name: 'name2', studentId: 2, movie: '2'},
+                {name: 'name3', studentId: 3, movie: '3'}
             ];
-
+            
             document.getElementById("btn").addEventListener("click", makeList);
 
             function event(event) {
                 makeList(members);
                 document.getElementById("div1").innerHTML = makeList(members);
                 event.preventDefault();
-            };
+            }
+            ;
 
             var makeList = function (members) {
                 var inner = members.map(members => ("\t<li>" + members + "</li>"));
-                for (var i = 0; i < members.length; i++) {
-                    members[i] + ' ';
-                }
-                    inner.unshift("<ul>");
-                    inner.push("</ul>");
-                    return inner.join("\n");
-                };
+                inner.unshift("<ul>");
+                inner.push("</ul>");
+                return inner.join("\n");
+            };
 
-                document.getElementById("div1").innerHTML = makeList(members);
-
+            document.getElementById("div1").innerHTML = makeList(members);
 
         </script>
 
