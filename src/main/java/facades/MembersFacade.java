@@ -45,10 +45,10 @@ public class MembersFacade {
         return new MembersDTO(m);
     }
     
-     public List<MembersDTO> getMembersByName(String title) {
+     public List<MembersDTO> getMembersByName(String name) {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Members> query = em.createQuery("SELECT m FROM Members m WHERE m.name LIKE :title", Members.class);
-        query.setParameter("title", "%"+title+"%");
+        TypedQuery<Members> query = em.createQuery("SELECT m FROM Members m WHERE m.name LIKE :name", Members.class);
+        query.setParameter("name", "%"+name+"%");
         List<Members> members = query.getResultList();
         List<MembersDTO> membersDTOs = new ArrayList();
         members.forEach((Members member) -> {
