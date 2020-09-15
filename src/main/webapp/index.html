@@ -14,7 +14,7 @@
         <div id="div1"></div>
 
         <button id="btn">Reload Names</button>
-            
+
         <div>
             <br>Links<br>
             <ul>
@@ -39,17 +39,19 @@
                 makeList(members);
                 document.getElementById("div1").innerHTML = makeList(members);
                 event.preventDefault();
-            }
-            ;
+            };
 
             var makeList = function (members) {
                 var inner = members.map(members => ("\t<li>" + members + "</li>"));
-                inner.unshift("<ul>");
-                inner.push("</ul>");
-                return inner.join("\n");
-            };
+                for (var i = 0; i < members.length; i++) {
+                    members[i] + ' ';
+                }
+                    inner.unshift("<ul>");
+                    inner.push("</ul>");
+                    return inner.join("\n");
+                };
 
-            document.getElementById("div1").innerHTML = makeList(members);
+                document.getElementById("div1").innerHTML = makeList(members);
 
 
         </script>
