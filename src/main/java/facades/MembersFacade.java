@@ -73,7 +73,7 @@ public class MembersFacade {
     public long getMembersCount(){
         EntityManager em = emf.createEntityManager();
         try{
-            long getMembersCount = (long)em.createQuery("SELECT COUNT(m) FROM Member m").getSingleResult();
+            long getMembersCount = (long)em.createQuery("SELECT COUNT(m) FROM Members m").getSingleResult();
             return getMembersCount;
         }finally{  
             em.close();
