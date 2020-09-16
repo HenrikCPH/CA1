@@ -1,7 +1,6 @@
 //package facades;
 //
 //import utils.EMF_Creator;
-//import entities.Members;
 //import javax.persistence.EntityManager;
 //import javax.persistence.EntityManagerFactory;
 //import static org.hamcrest.CoreMatchers.containsString;
@@ -45,9 +44,9 @@
 //    @BeforeEach
 //    public void setUp() {
 //        EntityManager em = emf.createEntityManager();
-//          m1 = em.persist(new Members("Mark Sørensen","cph-ms845","Tenet"));
-//          m2 = em.persist(new Members("Yones El Bana","cph-ye7","parasite"));
-//          m3 = em.persist(new Members("Henrik Lønquist Thomasen","cph-ht92","1917"));
+//          m1 = new Members("Mark Sørensen","cph-ms845","Tenet");
+//          m2 = new Members("Yones El Bana","cph-ye7","parasite");
+//          m3 = new Members("Henrik Lønquist Thomasen","cph-ht92","1917");
 //        try {
 //            em.getTransaction().begin();
 //            em.createQuery("DELETE from Members").executeUpdate();
@@ -65,8 +64,9 @@
 //    }
 //
 //    @Test
-//    public void testMembersCount() {
-//        assertEquals(3,facade.getMembersCount(),"Expects three members in the database");
+//    public void testgetMembersCount() {
+////assertEquals(3,facade.getMembersCount(),"Expects three movies in the database");
+//    
 //    }
 //    
 //    @Test
@@ -92,6 +92,7 @@
 //
 //
 //}
+<<<<<<< HEAD
 
 package facades;
 
@@ -189,3 +190,6 @@ public class MembersFacadeTest {
 
 
 }
+=======
+//
+>>>>>>> d9e985ebab8ee9d0b3b07d62026c83a1a75e586c

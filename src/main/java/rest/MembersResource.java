@@ -53,8 +53,8 @@ public class MembersResource {
     @Produces({MediaType.APPLICATION_JSON})
     public String getAll() {
         //throw new UnsupportedOperationException();
-        List<MembersDTO> movies = FACADE.getAllMembers();
-        return new Gson().toJson(movies);
+        List<MembersDTO> Members = FACADE.getAllMembers();
+        return new Gson().toJson(Members);
     }
   
 }

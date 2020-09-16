@@ -39,8 +39,7 @@
                 makeList(members);
                 document.getElementById("div1").innerHTML = makeList(members);
                 event.preventDefault();
-            }
-            ;
+            };
 
             var makeList = function (members) {
                 var inner = members.map(members => ("\t<li>" + members + "</li>"));
