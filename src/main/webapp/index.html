@@ -41,7 +41,7 @@
                 th1.style.backgroundColor = "blue";
                 th2.style.backgroundColor = "green";
                 th3.style.backgroundColor = "pink";
-            }
+            };
 
             var members = [
                 {name: 'name1', studentId: 1, movie: 'hi'},
@@ -78,7 +78,7 @@
             document.getElementById("th2").innerHTML = makeList(studentIds);
             document.getElementById("th3").innerHTML = makeList(movies);
 
-            let url = "https://hulabulakongen.dk/api/members/all"
+            let url = "https://hulabulakongen.dk/api/members/all";
 
             fetch(url)
                     .then(res => res.json())
