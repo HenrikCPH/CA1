@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 //Todo Remove or change relevant parts before ACTUAL use
-@Path("members")
+@Path("Members")
 public class MembersResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
