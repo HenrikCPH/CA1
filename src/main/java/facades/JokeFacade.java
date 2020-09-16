@@ -36,7 +36,7 @@ public class JokeFacade {
     
     public List<JokeDTO> getAllJokes() {
         EntityManager em = emf.createEntityManager();
-        TypedQuery<Joke> query =  em.createQuery("SELECT m FROM Members m",Joke.class);
+        TypedQuery<Joke> query =  em.createQuery("SELECT m FROM Joke m",Joke.class);
         List<Joke> jokes = query.getResultList();
         List<JokeDTO> jokeDTOs = new ArrayList();
         jokes.forEach((Joke joke) -> {
@@ -45,10 +45,10 @@ public class JokeFacade {
         return jokeDTOs;     
     }
     
-    public MembersDTO getMemberById(int id) {
+    public JokeDTO getJokeById(int id) {
         EntityManager em = emf.createEntityManager();
-        Members m = em.find(Members.class, id);
-        return new MembersDTO(m);
+        Joke j = em.find(Joke.class, id);
+        return new JokeDTO(j);
     }
     
     
@@ -68,8 +68,8 @@ public class JokeFacade {
     public long getJokeCount(){
         EntityManager em = emf.createEntityManager();
         try{
-            long getMembersCount = (long)em.createQuery("SELECT COUNT(m) FROM Joke m").getSingleResult();
-            return getMembersCount;
+            long getJokeCount = (long)em.createQuery("SELECT COUNT(m) FROM Joke m").getSingleResult();
+            return getJokeCount;
         }finally{  
             em.close();
         }
