@@ -40,6 +40,18 @@ public class MembersResource {
         return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
     }
     
+    @Path("name/{name}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+     public Response getByName(@PathParam("name") String name) {
+        List<MembersDTO> members = FACADE.getMembersByName(name);
+        if (members == null || members.isEmpty()) {
+            return Response.status(404).entity("{\"code\":404,\"msg\":\"Member not found\"}").build();
+        }
+        return Response.ok(GSON.toJson(members)).build();
+    
+    }
+    
     @Path("/{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
