@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //package facades;
 //
 //import utils.EMF_Creator;
@@ -93,7 +92,7 @@
 //
 //
 //}
-=======
+
 package facades;
 
 import utils.EMF_Creator;
@@ -190,4 +189,3 @@ public class MembersFacadeTest {
 
 
 }
->>>>>>> 4bbc11f0276ec1b42792dfe5079f809a3af6ff4d
