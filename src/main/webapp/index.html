@@ -11,7 +11,16 @@
 
         <h2>Class E</h2>
 
-        <div id="div1"></div>
+        <table>
+            <th>Name</th> 
+            <th>StudentID</th>
+            <th>Movie</th>
+            <tr>
+                <td id="th1"></td>
+                <td id="th2"></td>
+                <td id="th3"></td>
+            </tr>
+        </table>
 
         <button id="btn">Reload Names</button>
 
@@ -28,10 +37,20 @@
         <script>
 
             var members = [
-                {name: 'name1', studentId: 1, movie: '1'},
-                {name: 'name2', studentId: 2, movie: '2'},
-                {name: 'name3', studentId: 3, movie: '3'}
+                {name: 'name1', studentId: 1, movie: 'hi'},
+                {name: 'name2', studentId: 2, movie: 'bye'},
+                {name: 'name3', studentId: 3, movie: 'arh'}
             ];
+
+            var names = members.map(function (name) {
+                return name['name'];
+            });
+            var studentIds = members.map(function (studentId) {
+                return studentId['studentId'];
+            });
+            var movies = members.map(function (movie) {
+                return movie['movie'];
+            });
 
             document.getElementById("btn").addEventListener("click", makeList);
 
@@ -39,16 +58,19 @@
                 makeList(members);
                 document.getElementById("div1").innerHTML = makeList(members);
                 event.preventDefault();
-            };
+            }
+            ;
 
             var makeList = function (members) {
-                var inner = members.map(members => ("\t<li>" + members + "</li>"));
+                var inner = members.map(member => ("\t<li>" + member + "</li>"));
                 inner.unshift("<ul>");
                 inner.push("</ul>");
                 return inner.join("\n");
             };
-            console.log(members);
-            document.getElementById("div1").innerHTML = makeList(members);
+
+            document.getElementById("th1").innerHTML = makeList(names);
+            document.getElementById("th2").innerHTML = makeList(studentIds);
+            document.getElementById("th3").innerHTML = makeList(movies);
 
         </script>
 
