@@ -34,9 +34,17 @@ public class CarFacade {
         List<Car> cars = query.getResultList();
         List<CarDTO> carsDTOs = new ArrayList();
         cars.forEach((Car car) -> {
-            carsDTOs.add(new carsDTO(car));
+            carsDTOs.add(new CarDTO(car));
         });
         return carsDTOs; 
+    }
+    
+    public static CarFacade getCarFacade(EntityManagerFactory _emf) {
+        if (instance == null) {
+            emf = _emf;
+            instance = new CarFacade();
+        }
+        return instance;
     }
      public void populate() {
         EntityManager em = emf.createEntityManager();
