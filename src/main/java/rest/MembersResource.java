@@ -40,13 +40,21 @@ public class MembersResource {
         return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
     }
     
+    @Path("/{id}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public MembersDTO getById(@PathParam("id") int id) {
+        return FACADE.getMemberById(id);
+        //throw new UnsupportedOperationException();
+    }
+    
     @Path("/all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAll() {
         //throw new UnsupportedOperationException();
-        List<MembersDTO> movies = FACADE.getAllMembers();
-        return new Gson().toJson(movies);
+        List<MembersDTO> Members = FACADE.getAllMembers();
+        return new Gson().toJson(Members);
     }
   
 }
