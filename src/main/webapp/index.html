@@ -78,7 +78,7 @@
             document.getElementById("th2").innerHTML = makeList(studentIds);
             document.getElementById("th3").innerHTML = makeList(movies);
 
-            let url = "https://hulabulakongen.dk/api/members/all" + btn;
+            let url = "https://hulabulakongen.dk/ca1.0/api/members/all" + btn;
 
             fetch(url)
                     .then(res => res.json())
@@ -94,7 +94,7 @@
                         });
                         document.getElementById("tr1").innerHTML = lis.join("");
                     });
-            
+                    
         </script>
 
     </body>
