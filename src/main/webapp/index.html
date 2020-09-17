@@ -10,12 +10,12 @@
         <h1>Group 10</h1>
 
         <h2>Class E</h2>
-
+        
         <table>
             <th>Name</th> 
             <th>StudentID</th>
             <th>Movie</th>
-            <tr>
+            <tr id="tr1">
                 <td id="th1"></td>
                 <td id="th2"></td>
                 <td id="th3"></td>
@@ -23,7 +23,7 @@
         </table>
 
         <button id="btn">Reload Names</button>
-        
+
         <div>
             <br>Links<br>
             <ul>
@@ -78,23 +78,23 @@
             document.getElementById("th2").innerHTML = makeList(studentIds);
             document.getElementById("th3").innerHTML = makeList(movies);
 
-            let url = "https://hulabulakongen.dk/api/members/all";
+            let url = "https://hulabulakongen.dk/ca1.0/api/members/all" + btn;
 
             fetch(url)
                     .then(res => res.json())
-                    .then(persons => {
+                    .then(member => {
                         // Inside this callback, and only here, the response data is available
-                        console.log("data", persons);
+                        console.log("data", member);
                         /* data now contains the response, converted to JavaScript
                          Observe the output from the log-output above
                          Now, just build your DOM changes using the data*/
-                        var lis = persons.map((p) => {
+                        var lis = members.map((p) => {
                             line = "<li>" + p.name + "</li>";
                             return line;
                         });
-                        document.getElementById("th1").innerHTML = lis.join("");
+                        document.getElementById("tr1").innerHTML = lis.join("");
                     });
-
+                    
         </script>
 
     </body>
