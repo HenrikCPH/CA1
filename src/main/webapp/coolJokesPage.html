@@ -20,7 +20,10 @@ and open the template in the editor.
             </tr>
         </table>
         <br>
-        <label for="ji">Joke ID:</label><br>
+        <label for="joke">Joke ID:</label>
+        <br>
+        <input type="text" id="jokeField">
+        <br>
         <button id="btn">Fetch</button>
         <br>
         <p id="send"></p>
@@ -49,7 +52,7 @@ and open the template in the editor.
             var outer = document.getElementById("btn");
             btn.onclick = function () {
                 
-                let url = "https://hulabulakongen.dk/ca1.000/api/joke/1";
+                let url = "https://hulabulakongen.dk/ca1.000/api/joke/{id}";
 
                 fetch(url)
                         .then(res => res.json())
