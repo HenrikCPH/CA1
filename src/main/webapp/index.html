@@ -82,19 +82,19 @@
 
             fetch(url)
                     .then(res => res.json())
-                    .then(persons => {
+                    .then(member => {
                         // Inside this callback, and only here, the response data is available
-                        console.log("data", persons);
+                        console.log("data", member);
                         /* data now contains the response, converted to JavaScript
                          Observe the output from the log-output above
                          Now, just build your DOM changes using the data*/
-                        var lis = persons.map((p) => {
+                        var lis = members.map((p) => {
                             line = "<li>" + p.name + "</li>";
                             return line;
                         });
                         document.getElementById("tr1").innerHTML = lis.join("");
                     });
-
+            
         </script>
 
     </body>
