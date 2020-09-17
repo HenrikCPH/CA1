@@ -39,6 +39,13 @@ public class CarFacade {
         return carsDTOs; 
     }
     
+    public CarDTO getcarById(int id) {
+        EntityManager em = emf.createEntityManager();
+        Car c = em.find(Car.class, id);
+        return new CarDTO(c);
+    }
+    
+    
     public static CarFacade getCarFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
@@ -46,7 +53,7 @@ public class CarFacade {
         }
         return instance;
     }
-     public void populate() {
+     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
