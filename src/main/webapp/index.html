@@ -78,23 +78,25 @@
             document.getElementById("th2").innerHTML = makeList(studentIds);
             document.getElementById("th3").innerHTML = makeList(movies);
 
-            let url = "https://hulabulakongen.dk/ca1.0/api/members/all" + btn;
+            let url = "https://hulabulakongen.dk/ca1.0/api/members/all";
 
             fetch(url)
                     .then(res => res.json())
-                    .then(member => {
+                    .then(persons => {
                         // Inside this callback, and only here, the response data is available
-                        console.log("data", member);
+                        console.log("data", persons);
                         /* data now contains the response, converted to JavaScript
                          Observe the output from the log-output above
                          Now, just build your DOM changes using the data*/
-                        var lis = members.map((p) => {
-                            line = "<li>" + p.name + "</li>";
-                            return line;
+                        var lis = persons.map((p) => {
+                            line1 = "<li>" + p.name + "</li>";
+                            line2 = "<li>" + p.studentId + "</li>";
+                            line3 = "<li>" + p.name + "</li>";
+                            return line1 + line2 + line3;
                         });
-                        document.getElementById("tr1").innerHTML = lis.join("");
-                    });
-                    
+                        document.getElementById("th1").innerHTML = line1(lis.join("") + line2(lis.join("") + line3(lis.join(""))));
+                    });       
+            
         </script>
 
     </body>
