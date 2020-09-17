@@ -10,12 +10,12 @@
         <h1>Group 10</h1>
 
         <h2>Class E</h2>
-
+        
         <table>
             <th>Name</th> 
             <th>StudentID</th>
             <th>Movie</th>
-            <tr>
+            <tr id="tr1">
                 <td id="th1"></td>
                 <td id="th2"></td>
                 <td id="th3"></td>
@@ -78,7 +78,7 @@
             document.getElementById("th2").innerHTML = makeList(studentIds);
             document.getElementById("th3").innerHTML = makeList(movies);
 
-//            let url = "https://hulabulakongen.dk/api/members/all";
+            let url = "https://hulabulakongen.dk/api/members/all" + btn;
 
             fetch(url)
                     .then(res => res.json())
@@ -92,7 +92,7 @@
                             line = "<li>" + p.name + "</li>";
                             return line;
                         });
-                        document.getElementById("th1").innerHTML = lis.join("");
+                        document.getElementById("tr1").innerHTML = lis.join("");
                     });
 
         </script>
