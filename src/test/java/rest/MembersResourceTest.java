@@ -160,4 +160,7 @@ public class MembersResourceTest {
                 .body("[0].id", equalTo(m1.getId().intValue()));
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6c9c603054030ce08457cfa91adf53dbe867cce5
