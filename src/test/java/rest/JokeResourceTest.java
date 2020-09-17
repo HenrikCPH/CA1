@@ -11,10 +11,7 @@ import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 import io.restassured.http.ContentType;
 import io.restassured.parsing.Parser;
-import java.io.IOException;
 import java.net.URI;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.core.UriBuilder;
@@ -24,7 +21,6 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -120,15 +116,6 @@ public class JokeResourceTest {
 
     }
 
-//    @Test
-//    public void testgetMembersCount() {
-//        given().
-//                get("/joke/count")
-//                .then()
-//                .assertThat()
-//                .statusCode(HttpStatus.OK_200.getStatusCode())
-//                .body("count", equalTo(3));
-//    }
 
     @Test
     public void testGetAll() {
@@ -140,15 +127,6 @@ public class JokeResourceTest {
                 .body("thejoke", hasItems("some joke","??","joker"));
     }
 
-
-//    @Test
-//    public void testFindByNameNotFound() {
-//        given()
-//                .get("/joke/thejoke/1")
-//                .then()
-//                .assertThat()
-//                .statusCode(HttpStatus.NOT_FOUND_404.getStatusCode());
-//    }
 
     @Test
     public void testFindById() {
