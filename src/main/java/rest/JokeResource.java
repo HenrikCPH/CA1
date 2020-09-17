@@ -20,6 +20,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import utils.EMF_Creator;
 
 /**
@@ -43,12 +44,24 @@ public class JokeResource {
     public JokeResource() {
     }
 
-@Path("/{id}")
+    @Path("/{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public JokeDTO getById(@PathParam("id") int id) {
         return FACADE.getJokeById(id);
         //throw new UnsupportedOperationException();
+    }
+    
+    @Path("thejoke/{thejoke}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+     public Response getByTheJoke(@PathParam("thejoke") String joken) {
+        List<JokeDTO> jokers = FACADE.getJokeByTheJoke(joken);
+        if (jokers == null || jokers.isEmpty()) {
+            return Response.status(404).entity("{\"code\":404,\"msg\":\"Member not found\"}").build();
+        }
+        return Response.ok(GSON.toJson(jokers)).build();
+    
     }
     
     @Path("/all")

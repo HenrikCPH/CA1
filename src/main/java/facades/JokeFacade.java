@@ -51,6 +51,18 @@ public class JokeFacade {
         return new JokeDTO(j);
     }
     
+    public List<JokeDTO> getJokeByTheJoke(String joken) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Joke> query = em.createQuery("SELECT m FROM Joke m WHERE m.thejoke LIKE :thejoke", Joke.class);
+        query.setParameter("thejoke", "%"+joken+"%");
+        List<Joke> jokers = query.getResultList();
+        List<JokeDTO> jokeDTOs = new ArrayList();
+        jokers.forEach((Joke joke) -> {
+            jokeDTOs.add(new JokeDTO(joke));
+        });
+        return jokeDTOs;
+    }
+    
     
     public static JokeFacade getJokeFacade(EntityManagerFactory _emf) {
         if (instance == null) {

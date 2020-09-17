@@ -1,6 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package rest;
 
-import entities.Members;
+import entities.Joke;
 import utils.EMF_Creator;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
@@ -25,18 +30,21 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-//@Disabled
-public class MembersResourceTest {
-
+/**
+ *
+ * @author Marks
+ */
+public class JokeResourceTest {
+    
     private static final int SERVER_PORT = 7777;
     private static final String SERVER_URL = "http://localhost/api";
     static final URI BASE_URI = UriBuilder.fromUri(SERVER_URL).port(SERVER_PORT).build();
     private static HttpServer httpServer;
     private static EntityManagerFactory emf;
 
-    private Members m1;
-    private Members m2;
-    private Members m3;
+    private Joke j1;
+    private Joke j2;
+    private Joke j3;
 
     static HttpServer startServer() {
         ResourceConfig rc = ResourceConfig.forApplication(new ApplicationConfig());
@@ -73,15 +81,15 @@ public class MembersResourceTest {
     @BeforeEach
     public void setUp() {
         EntityManager em = emf.createEntityManager();
-      m1 = (new Members("Mark Sørensen","cph-ms845","Tenet"));
-          m2 = (new Members("Yones El Bana","cph-ye7","parasite"));
-          m3 = (new Members("Henrik Lønquist Thomasen","cph-ht92","1917"));
+          j1 = new Joke("some joke","Joke.com");
+          j2 = new Joke("??","idk");
+          j3 = new Joke("joker","yes");
         try {
             em.getTransaction().begin();
-            em.createQuery("DELETE from Members").executeUpdate();
-            em.persist(m1);
-            em.persist(m2);
-            em.persist(m3);
+            em.createQuery("DELETE from Joke").executeUpdate();
+            em.persist(j1);
+            em.persist(j2);
+            em.persist(j3);
             em.getTransaction().commit();
         } finally {
             em.close();
@@ -108,56 +116,48 @@ public class MembersResourceTest {
     @Test
     public void demonStrateLogging() {
 
-        given().log().all().when().get("/members").then().log().body();
+        given().log().all().when().get("/joke").then().log().body();
 
     }
 
-    @Test
-    public void testgetMembersCount() {
-        given().
-                get("/members/count")
-                .then()
-                .assertThat()
-                .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("count", equalTo(3));
-    }
+//    @Test
+//    public void testgetMembersCount() {
+//        given().
+//                get("/joke/count")
+//                .then()
+//                .assertThat()
+//                .statusCode(HttpStatus.OK_200.getStatusCode())
+//                .body("count", equalTo(3));
+//    }
 
     @Test
     public void testGetAll() {
         given()
-                .get("/members/all")
+                .get("/joke/all")
                 .then()
                 .assertThat()
                 .body("size()", equalTo(3))
-                .body("name", hasItems("Mark Sørensen","Yones El Bana","Henrik Lønquist Thomasen"));
+                .body("thejoke", hasItems("some joke","??","joker"));
     }
 
-    @Test
-    public void testFindByname() {
-        given()
-                .get("/members/name/Yones El Bana")
-                .then()
-                .assertThat()
-                .statusCode(HttpStatus.OK_200.getStatusCode());
-    }
 
-    @Test
-    public void testFindByNameNotFound() {
-        given()
-                .get("/members/name/1")
-                .then()
-                .assertThat()
-                .statusCode(HttpStatus.NOT_FOUND_404.getStatusCode());
-    }
+//    @Test
+//    public void testFindByNameNotFound() {
+//        given()
+//                .get("/joke/thejoke/1")
+//                .then()
+//                .assertThat()
+//                .statusCode(HttpStatus.NOT_FOUND_404.getStatusCode());
+//    }
 
     @Test
     public void testFindById() {
         given()
                 .contentType("application/json")
-                .get("/members/name/Mark Sørensen").then()
+                .get("/joke/thejoke/some joke").then()
                 .assertThat()
                 .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("[0].id", equalTo(m1.getId().intValue()));
+                .body("[0].id", equalTo(j1.getId()));
     }
+    
 }
-

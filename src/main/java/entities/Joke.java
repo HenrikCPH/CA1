@@ -20,10 +20,10 @@ public class Joke implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    String thejoke;
-    String reference;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String thejoke;
+    private  String reference;
 
     public Joke(String thejoke, String reference) {
         this.id = id;
