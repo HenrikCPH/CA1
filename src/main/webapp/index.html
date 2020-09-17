@@ -23,7 +23,7 @@
         </table>
 
         <button id="btn">Reload Names</button>
-        
+
         <div>
             <br>Links<br>
             <ul>
@@ -80,20 +80,20 @@
 
 //            let url = "https://hulabulakongen.dk/api/members/all";
 
-//            fetch(url)
-//                    .then(res => res.json())
-//                    .then(persons => {
-//                        // Inside this callback, and only here, the response data is available
-//                        console.log("data", persons);
-//                        /* data now contains the response, converted to JavaScript
-//                         Observe the output from the log-output above
-//                         Now, just build your DOM changes using the data*/
-//                        var lis = persons.map((p) => {
-//                            line = "<li>" + p.name + "</li>";
-//                            return line;
-//                        });
-//                        document.getElementById("th1").innerHTML = lis.join("");
-//                    });
+            fetch(url)
+                    .then(res => res.json())
+                    .then(persons => {
+                        // Inside this callback, and only here, the response data is available
+                        console.log("data", persons);
+                        /* data now contains the response, converted to JavaScript
+                         Observe the output from the log-output above
+                         Now, just build your DOM changes using the data*/
+                        var lis = persons.map((p) => {
+                            line = "<li>" + p.name + "</li>";
+                            return line;
+                        });
+                        document.getElementById("th1").innerHTML = lis.join("");
+                    });
 
         </script>
 
