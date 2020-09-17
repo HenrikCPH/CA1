@@ -32,7 +32,7 @@ and open the template in the editor.
 
         <script>
 
-            document.getElementById("btn").addEventListener("click", btn.onclick());
+            document.getElementById("btn").addEventListener("click", btn.onclick);
 
             let url = "https://hulabulakongen.dk/ca1.2/api/joke/all";
 
@@ -54,7 +54,7 @@ and open the template in the editor.
             var outer = document.getElementById("btn");
             btn.onclick = function () {
                 
-                let url = "https://hulabulakongen.dk/ca1.2/api/joke/{id}";
+                let url = "https://hulabulakongen.dk/ca1.2/api/joke/";
 
                 fetch(url)
                         .then(res => res.json())
