@@ -13,8 +13,6 @@ and open the template in the editor.
 
     <body>
 
-        <div>Jokes</div>
-        <br>
         <table>
             <th>All our jokes</th> 
             <tr>
@@ -22,12 +20,54 @@ and open the template in the editor.
             </tr>
         </table>
         <br>
-        <label for="jokeId">Joke ID:</label><br>
+        <label for="ji">Joke ID:</label><br>
         <button id="btn">Fetch</button>
         <br>
-        <p>her skal jokes udskrives</p>
+        <p id="send"></p>
         <br>
         <ul><li><a href="index.html">Back to overview</a></li></ul>
+
+        <script>
+
+            let url = "https://hulabulakongen.dk/ca1.000/api/joke/all";
+
+            fetch(url)
+                    .then(res => res.json())
+                    .then(persons => {
+                        // Inside this callback, and only here, the response data is available
+                        console.log("data", persons);
+                        /* data now contains the response, converted to JavaScript
+                         Observe the output from the log-output above
+                         Now, just build your DOM changes using the data*/
+                        var lis1 = persons.map((p) => {
+                            line1 = "<li>" + p.thejoke + "</li>";
+                            return line1;
+                        });
+                        document.getElementById("jt").innerHTML = lis1.join("");
+                    });
+
+            var outer = document.getElementById("btn");
+            btn.onclick = function () {
+                
+                let url = "https://hulabulakongen.dk/ca1.000/api/joke/1";
+
+                fetch(url)
+                        .then(res => res.json())
+                        .then(persons => {
+                            // Inside this callback, and only here, the response data is available
+                            console.log("data", persons);
+                            /* data now contains the response, converted to JavaScript
+                             Observe the output from the log-output above
+                             Now, just build your DOM changes using the data*/
+                            var lis1 = persons.map((p) => {
+                                line1 = "<li>" + p.thejoke + "</li>";
+                                return line1;
+                            });
+                            document.getElementById("send").innerHTML = lis1.join("");
+                        });
+            };
+
+        </script>
 
     </body>
 

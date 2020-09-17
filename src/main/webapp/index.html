@@ -37,7 +37,7 @@
         <script>
 
             var outer = document.getElementById("btn");
-            btn.onclick = function (e) {
+            btn.onclick = function () {
                 th1.style.backgroundColor = "blue";
                 th2.style.backgroundColor = "green";
                 th3.style.backgroundColor = "pink";
@@ -64,8 +64,7 @@
             function event(event) {
                 makeList(members);
                 event.preventDefault();
-            }
-            ;
+            };
 
             var makeList = function (members) {
                 var inner = members.map(member => ("\t<li>" + member + "</li>"));
@@ -78,7 +77,7 @@
             document.getElementById("th2").innerHTML = makeList(studentIds);
             document.getElementById("th3").innerHTML = makeList(movies);
 
-            let url = "https://hulabulakongen.dk/ca1.0/api/members/all";
+            let url = "https://hulabulakongen.dk/ca1.000/api/members/all";
 
             fetch(url)
                     .then(res => res.json())
