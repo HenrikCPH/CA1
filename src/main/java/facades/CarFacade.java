@@ -45,6 +45,18 @@ public class CarFacade {
         return new CarDTO(c);
     }
     
+    public List<CarDTO> getCarsByMake(String make) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Car> query = em.createQuery("SELECT m FROM Car m WHERE m.make LIKE :make", Car.class);
+        query.setParameter("make", "%"+make+"%");
+        List<Car> cars = query.getResultList();
+        List<CarDTO> carDTOs = new ArrayList();
+        cars.forEach((Car car) -> {
+            carDTOs.add(new CarDTO(car));
+        });
+        return carDTOs;
+    }
+    
     
     public static CarFacade getCarFacade(EntityManagerFactory _emf) {
         if (instance == null) {
@@ -55,7 +67,12 @@ public class CarFacade {
     }
      public static void main(String[] args) {
         EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
+<<<<<<< HEAD
+        
+        EntityManager em = emf.createEntityManager();        
+=======
         EntityManager em = emf.createEntityManager();
+>>>>>>> 6267a0579d261b0d995b095f127569d1669b2488
         try {
             em.getTransaction().begin();
             em.createQuery("DELETE from Car").executeUpdate();
