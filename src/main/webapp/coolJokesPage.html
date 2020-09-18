@@ -54,7 +54,9 @@ and open the template in the editor.
             var outer = document.getElementById("btn");
             btn.onclick = function () {
                 
-                let url = "https://hulabulakongen.dk/ca1.3/api/joke/{id}";
+                let input = document.getElementById("jokeField").value;
+                
+                let url = "https://hulabulakongen.dk/ca1.3/api/joke/" + input;
 
                 fetch(url)
                         .then(res => res.json())
@@ -64,11 +66,7 @@ and open the template in the editor.
                             /* data now contains the response, converted to JavaScript
                              Observe the output from the log-output above
                              Now, just build your DOM changes using the data*/
-                            var lis1 = persons.map((p) => {
-                                line1 = "<li>" + p.thejoke + "</li>";
-                                return line1;
-                            });
-                            document.getElementById("send").innerHTML = lis1.join("");
+                            document.getElementById("send").innerHTML = persons.thejoke;
                         });
             };
 
