@@ -118,6 +118,7 @@ public class CarResourceTest {
 
     }
 
+<<<<<<< HEAD
 
 //    @Test
 //    public void testGetAll() {
@@ -130,6 +131,8 @@ public class CarResourceTest {
 //    }
 
 
+=======
+>>>>>>> 47e85fa037c5616c03bae0f9f99819f65e7365e7
 //    @Test
 //    public void testGetAll() {
 //        given()
