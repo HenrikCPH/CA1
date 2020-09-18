@@ -19,35 +19,62 @@
                 <td id="th3"></td>
             </tr>
         </table>
-
+        
+         <button id="btn1">Sort list by model</button> 
+         <button id="btn2">Sort list by year</button> 
+         <button id="btn3">Sort list by price</button> 
+        
         <script >
 
+            document.getElementById("btn1").addEventListener("click", sortModel);
+            document.getElementById("btn2").addEventListener("click", sortModel);
+            document.getElementById("btn3").addEventListener("click", sortModel);
+
             let url = "https://hulabulakongen.dk/ca1/api/car/all";
+
+            var fetchCars;
 
             fetch(url)
                     .then(res => res.json())
                     .then(cars => {
-                        // Inside this callback, and only here, the response data is available
-                        console.log("data", cars);
-                        /* data now contains the response, converted to JavaScript
-                         Observe the output from the log-output above
-                         Now, just build your DOM changes using the data*/ 
-                        var lis1 = cars.map((c) => {
-                            line = "<li>" + c.model + "</li>";
-                            return line;
-                        });
-                        var lis2 = cars.map((c) => {
-                            line = "<li>" + c.year + "</li>";
-                            return line;
-                        });
-                        var lis3 = cars.map((c) => {
-                            line = "<li>" + c.price + "</li>";
-                            return line;
-                        });
-                        document.getElementById("th1").innerHTML = lis1.join("");
-                        document.getElementById("th2").innerHTML = lis2.join("");
-                        document.getElementById("th3").innerHTML = lis3.join("");
+                        fetchCars = cars;
+                        printCars(fetchCars);
                     });
+
+            function printCars(cars) {
+                var lis1 = cars.map((c) => {
+                    line = "<li>" + c.model + "</li>";
+                    return line;
+                });
+                var lis2 = cars.map((c) => {
+                    line = "<li>" + c.year + "</li>";
+                    return line;
+                });
+                var lis3 = cars.map((c) => {
+                    line = "<li>" + c.price + "</li>";
+                    return line;
+                });
+                document.getElementById("th1").innerHTML = lis1.join("");
+                document.getElementById("th2").innerHTML = lis2.join("");
+                document.getElementById("th3").innerHTML = lis3.join("");
+            }
+            ;
+            
+            function sortModel() {
+                fetchCars.sort((a,b) => {return a.model.localeCompare(b.model);});
+                printCars(fetchCars);
+            }
+            ;
+            function sortYear() {
+                fetchCars.sort((a,b) => {return a.year - b.year;});
+                printCars(fetchCars);
+            }
+            ;
+            function sortPrice() {
+                fetchCars.sort((a,b) => {return a.price - b.price;});
+                printCars(fetchCars);
+            }
+            ;
 
         </script>
     </body>
