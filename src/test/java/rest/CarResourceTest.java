@@ -123,7 +123,6 @@ public class CarResourceTest {
     }
 
 
-<<<<<<< HEAD
     @Test
     public void testGetAll() {
         given()
@@ -133,8 +132,6 @@ public class CarResourceTest {
                 .body("size()", equalTo(5))
                 .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
     }
-=======
->>>>>>> 851ee95dbe907d75039f52c618fa9dc9b7d7018e
 
 //    @Test
 //    public void testGetAll() {
