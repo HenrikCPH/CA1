@@ -118,20 +118,6 @@ public class CarResourceTest {
 
     }
 
-
-<<<<<<< HEAD
-    @Test
-    public void testGetAll() {
-        given()
-                .get("/Car/all")
-                .then()
-                .assertThat()
-                .body("size()", equalTo(5))
-                .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
-    }
-
-=======
->>>>>>> 0feead1456bb1c57298fc4b2bf7d16c76542fd3c
 //    @Test
 //    public void testGetAll() {
 //        given()
