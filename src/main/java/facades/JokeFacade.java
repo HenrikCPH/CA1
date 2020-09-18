@@ -14,10 +14,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 import utils.EMF_Creator;
 
-/**
- *
- * @author Marks
- */
 public class JokeFacade {
      private static JokeFacade instance;
     private static EntityManagerFactory emf;

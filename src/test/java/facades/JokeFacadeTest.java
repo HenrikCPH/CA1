@@ -16,10 +16,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import utils.EMF_Creator;
 
-/**
- *
- * @author Marks
- */
 public class JokeFacadeTest {
     
     public JokeFacadeTest() {

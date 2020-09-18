@@ -7,11 +7,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
-/**
- * REST Test Web Service
- *
- * @author lam
- */
 @Path("test")
 public class TestResource {
 

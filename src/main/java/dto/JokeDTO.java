@@ -7,10 +7,6 @@ package dto;
 
 import entities.Joke;
 
-/**
- *
- * @author Marks
- */
 public class JokeDTO {
     
     private int id;

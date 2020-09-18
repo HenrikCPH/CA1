@@ -26,10 +26,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import utils.EMF_Creator;
 
-/**
- *
- * @author Marks
- */
 public class CarResourceTest {
     
     private static final int SERVER_PORT = 7777;
@@ -123,6 +119,7 @@ public class CarResourceTest {
     }
 
 
+<<<<<<< HEAD
     @Test
     public void testGetAll() {
         given()
@@ -133,6 +130,8 @@ public class CarResourceTest {
                 .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
     }
 
+=======
+>>>>>>> 0feead1456bb1c57298fc4b2bf7d16c76542fd3c
 //    @Test
 //    public void testGetAll() {
 //        given()

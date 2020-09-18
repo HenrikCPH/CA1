@@ -7,10 +7,6 @@ package dto;
 
 import entities.Members;
 
-/**
- *
- * @author Yones
- */
 public class MembersDTO { 
 
     

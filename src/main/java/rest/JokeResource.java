@@ -23,11 +23,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import utils.EMF_Creator;
 
-/**
- * REST Web Service
- *
- * @author Marks
- */
 @Path("joke")
 public class JokeResource {
 
