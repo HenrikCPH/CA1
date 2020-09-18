@@ -12,11 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author Yones
- */
-
 public class CarDTO {
     
     private int id;

@@ -26,10 +26,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/**
- *
- * @author Marks
- */
 public class JokeResourceTest {
     
     private static final int SERVER_PORT = 7777;

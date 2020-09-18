@@ -26,10 +26,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import utils.EMF_Creator;
 
-/**
- *
- * @author Marks
- */
 public class CarResourceTest {
     
     private static final int SERVER_PORT = 7777;
