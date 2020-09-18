@@ -67,10 +67,7 @@ public class CarFacade {
     }
      public static void main(String[] args) {
         EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
-<<<<<<< HEAD
-        
-=======
->>>>>>> aad1db1c057dfcbd007fc4f695e6ea89fc6d9977
+
         EntityManager em = emf.createEntityManager();        
 
         try {
