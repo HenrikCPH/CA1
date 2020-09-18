@@ -7,8 +7,6 @@ package facades;
 
 import entities.Joke;
 import dto.JokeDTO;
-import dto.MembersDTO;
-import entities.Members;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
