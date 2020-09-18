@@ -129,7 +129,7 @@ public class CarResourceTest {
                 .get("/Car/all")
                 .then()
                 .assertThat()
-                .body("size()", equalTo(20))
+                .body("size()", equalTo(5))
                 .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
     }
 

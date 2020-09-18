@@ -67,12 +67,9 @@ public class CarFacade {
     }
      public static void main(String[] args) {
         EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
-<<<<<<< HEAD
         
         EntityManager em = emf.createEntityManager();        
-=======
-        EntityManager em = emf.createEntityManager();
->>>>>>> 6267a0579d261b0d995b095f127569d1669b2488
+
         try {
             em.getTransaction().begin();
             em.createQuery("DELETE from Car").executeUpdate();
