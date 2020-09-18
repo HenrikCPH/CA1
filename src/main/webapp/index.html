@@ -77,7 +77,7 @@
             document.getElementById("th2").innerHTML = makeList(studentIds);
             document.getElementById("th3").innerHTML = makeList(movies);
 
-            let url = "https://hulabulakongen.dk/ca1.3/api/members/all";
+            let url = "https://hulabulakongen.dk/ca1/api/members/all";
 
             fetch(url)
                     .then(res => res.json())

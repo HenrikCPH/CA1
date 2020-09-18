@@ -22,7 +22,7 @@ import utils.EMF_Creator;
  *
  * @author Yones
  */
-@Path("Car")
+@Path("car")
 public class CarResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
