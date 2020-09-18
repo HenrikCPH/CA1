@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Our cool cars</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
-<body>
-     <div>Cars for sale</div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Our cool cars</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        <div>Cars for sale</div>
         <br>
         <ul><li><a href="index.html">Back to overview</a></li></ul>
-    
+
+        <table>
+            <th>Car selection</th> 
+            <tr>
+                <td id="sel"></td> 
+            </tr>
+        </table>
         
-    <table id="carTable">
-        <thead id="tableHead">
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>
-    <script ></script>
-</body>
+        <script >
+
+        let url = "https://hulabulakongen.dk/ca1.3/api/car/all";
+        
+        fetch(url)
+                    .then(res => res.json())
+                    .then(cars => {
+                        // Inside this callback, and only here, the response data is available
+                        console.log("data", cars);
+                        /* data now contains the response, converted to JavaScript
+                         Observe the output from the log-output above
+                         Now, just build your DOM changes using the data*/
+                        var lis = cars.map((p) => {
+                            line = "<li>" + p.thejoke + "</li>";
+                            return line;
+                        });
+                        document.getElementById("jt").innerHTML = lis.join("");
+                    });
+
+        </script>
+    </body>
 </html>
-    
-    
+
+
 
