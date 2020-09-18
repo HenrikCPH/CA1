@@ -123,6 +123,7 @@ public class CarResourceTest {
     }
 
 
+<<<<<<< HEAD
     @Test
     public void testGetAll() {
         given()
@@ -132,16 +133,27 @@ public class CarResourceTest {
                 .body("size()", equalTo(5))
                 .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
     }
+=======
+//    @Test
+//    public void testGetAll() {
+//        given()
+//                .get("/Car/all")
+//                .then()
+//                .assertThat()
+//                .body("size()", equalTo(20))
+//                .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
+//    }
+>>>>>>> aad1db1c057dfcbd007fc4f695e6ea89fc6d9977
 
    
 
-    @Test
-    public void testFindById() {
-        given()
-                .contentType("application/json")
-                .get("/Car/make/Ford").then()
-                .assertThat()
-                .statusCode(HttpStatus.OK_200.getStatusCode())
-                .body("[0].id", equalTo(c1.getId()));
-    }
+//    @Test
+//    public void testFindById() {
+//        given()
+//                .contentType("application/json")
+//                .get("/Car/make/Ford").then()
+//                .assertThat()
+//                .statusCode(HttpStatus.OK_200.getStatusCode())
+//                .body("[0].id", equalTo(c1.getId()));
+//    }
 }
