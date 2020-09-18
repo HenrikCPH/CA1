@@ -34,7 +34,7 @@ and open the template in the editor.
 
             document.getElementById("btn").addEventListener("click", btn.onclick);
 
-            let url = "https://hulabulakongen.dk/ca1.3/api/joke/all";
+            let url = "https://hulabulakongen.dk/ca1/api/joke/all";
 
             fetch(url)
                     .then(res => res.json())
@@ -56,7 +56,7 @@ and open the template in the editor.
                 
                 let input = document.getElementById("jokeField").value;
                 
-                let url = "https://hulabulakongen.dk/ca1.3/api/joke/" + input;
+                let url = "https://hulabulakongen.dk/ca1/api/joke/" + input;
 
                 fetch(url)
                         .then(res => res.json())
