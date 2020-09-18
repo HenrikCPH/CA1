@@ -35,14 +35,13 @@ public class CarResource {
      */
     public CarResource() {
     }
-
-//@Path("/{id}")
-//    @GET
-//    @Produces({MediaType.APPLICATION_JSON})
-//    public CarDTO getById(@PathParam("id") int id) {
-//        return FACADE.getCarById(id);
-//        //throw new UnsupportedOperationException();
-//    }
+ @Path("/{id}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public CarDTO getById(@PathParam("id") int id) {
+        return FACADE.getcarById(id);
+        //throw new UnsupportedOperationException();
+    }
     
     @Path("/all")
     @GET
