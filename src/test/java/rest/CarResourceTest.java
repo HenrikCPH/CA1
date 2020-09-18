@@ -123,17 +123,7 @@ public class CarResourceTest {
     }
 
 
-<<<<<<< HEAD
-    @Test
-    public void testGetAll() {
-        given()
-                .get("/Car/all")
-                .then()
-                .assertThat()
-                .body("size()", equalTo(5))
-                .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
-    }
-=======
+
 //    @Test
 //    public void testGetAll() {
 //        given()
@@ -143,7 +133,6 @@ public class CarResourceTest {
 //                .body("size()", equalTo(20))
 //                .body("make", hasItems("Ford","Jeep","Volvo","Chevy","Chevy"));
 //    }
->>>>>>> aad1db1c057dfcbd007fc4f695e6ea89fc6d9977
 
    
 
